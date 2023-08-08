@@ -1,0 +1,108 @@
+package project;
+
+import java.time.LocalTime;
+
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Flights")
+public class Flight {
+
+		@Id
+		private int flightNo;
+		private String fromCity;
+		private String toCity;
+		private String durationInMinutes;
+		private LocalTime departureTime;
+		private LocalTime ArrivalTime;
+		private String Aircraft;
+		
+		@ManyToOne(fetch = FetchType.LAZY)
+		@JoinColumn(name="FromCity")
+		private City fCity;
+		
+		@ManyToOne(fetch = FetchType.LAZY)
+		@JoinColumn(name="ToCity")
+		private City tCity;
+
+		public int getFlightNo() {
+			return flightNo;
+		}
+
+		public void setFlightNo(int flightNo) {
+			this.flightNo = flightNo;
+		}
+
+		public String getFromCity() {
+			return fromCity;
+		}
+
+		public void setFromCity(String fromCity) {
+			this.fromCity = fromCity;
+		}
+
+		public String getToCity() {
+			return toCity;
+		}
+
+		public void setToCity(String toCity) {
+			this.toCity = toCity;
+		}
+
+		public String getDurationInMinutes() {
+			return durationInMinutes;
+		}
+
+		public void setDurationInMinutes(String durationInMinutes) {
+			this.durationInMinutes = durationInMinutes;
+		}
+
+		public LocalTime getDepartureTime() {
+			return departureTime;
+		}
+
+		public void setDepartureTime(LocalTime departureTime) {
+			this.departureTime = departureTime;
+		}
+
+		public LocalTime getArrivalTime() {
+			return ArrivalTime;
+		}
+
+		public void setArrivalTime(LocalTime arrivalTime) {
+			ArrivalTime = arrivalTime;
+		}
+
+		public String getAircraft() {
+			return Aircraft;
+		}
+
+		public void setAircraft(String aircraft) {
+			Aircraft = aircraft;
+		}
+
+		public City getfCity() {
+			return fCity;
+		}
+
+		public void setfCity(City fCity) {
+			this.fCity = fCity;
+		}
+
+		public City gettCity() {
+			return tCity;
+		}
+
+		public void settCity(City tCity) {
+			this.tCity = tCity;
+		}
+		
+		
+		
+		
+}

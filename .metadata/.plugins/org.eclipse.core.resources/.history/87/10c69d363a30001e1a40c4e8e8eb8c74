@@ -1,0 +1,16 @@
+package files;
+
+import java.io.File;
+
+public class CreateFIle {
+
+	public static void main(String[] args) {
+		File f = new File("/FirstDay.txt");
+		if(f.createNewFile())
+			System.out.println("new file created");
+		else
+		
+	}
+	
+	
+}

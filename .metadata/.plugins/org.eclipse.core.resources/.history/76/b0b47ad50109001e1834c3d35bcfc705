@@ -1,0 +1,49 @@
+package studentCourse;
+
+import java.util.Set;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.ManyToMany;
+import javax.persistence.Table;
+
+@Entity(name = "sc.Course")
+@Table(name = "mtm_course_1")
+public class Course {
+	@Column
+	private int id;
+	@Column
+	private String course_name;
+	@ManyToMany(mappedBy = "course")
+	Set<Student> students;
+
+	public int getId() {
+		return id;
+	}
+
+	public void setId(int id) {
+		this.id = id;
+	}
+
+	public String getCourse_name() {
+		return course_name;
+	}
+
+	public void setCourse_name(String course_name) {
+		this.course_name = course_name;
+	}
+
+	public Set<Student> getStudents() {
+		return students;
+	}
+
+	public void setStudents(Set<Student> students) {
+		this.students = students;
+	}
+
+	@Override
+	public String toString() {
+		return "Course [id=" + id + ", course_name=" + course_name + ", students=" + students + "]";
+	}
+
+}

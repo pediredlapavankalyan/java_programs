@@ -1,0 +1,12 @@
+package day12;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+
+public class MarksList {
+	public static void main(String[] args) throws IOException {
+		var marks = Files.readAllLines(Path.of("/home/developer/java_programs/BasicJava/marks.dat"));
+		System.out.println(marks);
+	}
+}

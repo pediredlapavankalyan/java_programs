@@ -1,0 +1,22 @@
+package day12;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.LinkedHashMap;
+import java.util.TreeMap;
+
+public class Ocuurance {
+	public static void main(String[] args) throws IOException {
+		var data = Files.readAllLines(Path.of("/home/developer/filejava/customerData.txt"));
+		var names = new LinkedHashMap<String, String>();
+		for(var key:data)
+		{
+			if(names.containsKey(key))
+			{
+				names.replace(key, names.get(key));
+			}
+		}
+		
+	}
+}

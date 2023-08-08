@@ -1,0 +1,19 @@
+package project;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="Cities")
+public class City {
+	@Id
+	private String cityCode;
+	private String name;
+	@Column(name="min")
+	private int minutesFromUTC;
+	private String country;
+	
+	
+}

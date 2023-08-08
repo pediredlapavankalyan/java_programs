@@ -1,0 +1,34 @@
+package day26_1;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Component;
+import org.springframework.transaction.TransactionStatus;
+import org.springframework.transaction.interceptor.TransactionAspectSupport;
+
+import jakarta.transaction.Transactional;
+
+@Component
+public class Product_Transction  {
+	@Autowired
+	JdbcTemplate jdbcTemplate;
+
+	@Transactional
+	public void updatePrice(int p1, int p2) {
+
+		System.out.println("Transaction begin");
+		price(p1);
+		price(p2);
+	}
+
+	public void price(int p) {
+		TransactionStatus ts = TransactionAspectSupport.currentTransactionStatus();
+		int count = jdbcTemplate.update("update products set price=price*1.1 where prodid=?", p);
+		if (count == 0)
+			ts.setRollbackOnly();
+		else
+			System.out.println("1st product updated");
+	}
+
+	
+}

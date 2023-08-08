@@ -1,0 +1,10 @@
+package jpql;
+
+public class NamedQuery {
+
+	public static void main(String[] args) {
+		
+
+	}
+
+}

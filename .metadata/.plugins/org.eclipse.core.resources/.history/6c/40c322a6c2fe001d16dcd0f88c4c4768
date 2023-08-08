@@ -1,0 +1,24 @@
+package day12;
+
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.TreeMap;
+
+public class Customer {
+
+	public static void main(String[] args) throws IOException {
+		var data = Files.readAllLines(Path.of("/home/developer/filejava/customerData.txt"));
+		var list = new ArrayList<String>(data);
+		var map = new HashMap<Integer, String>();
+		for (var v : list) {
+			String ar[] = v.split(",");
+			map.put(Integer.parseInt(ar[0]), ar[1]);
+		}
+		var treemap =new TreeMap<Integer, String>(map);
+		System.out.println(treemap);
+	}
+
+}

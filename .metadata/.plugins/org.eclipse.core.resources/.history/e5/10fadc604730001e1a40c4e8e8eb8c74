@@ -1,0 +1,7 @@
+package regexp;
+
+public class MobileNum {
+	public static void main(String[] args) {
+		
+	}
+}

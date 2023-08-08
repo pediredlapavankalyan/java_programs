@@ -1,0 +1,14 @@
+package day7;
+
+import java.util.Scanner;
+
+public class SortedDates {
+public static void main(String[] args) {
+	Scanner sc = new Scanner(System.in);
+	System.out.println("Enter Date in format \'DD-MM-YYYY\'");
+	for(int i=0;i<5;i++)
+	{
+		
+	}
+}
+}

@@ -1,0 +1,232 @@
+package day26_1;
+
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+import java.util.ListIterator;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.CommandLineRunner;
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class Test implements CommandLineRunner {
+//	@Autowired
+//	Product_Transction pt;
+//	@Autowired
+	Titlerepo tr;
+	@Autowired
+	CategoryCrud cat;
+	
+	//2nd question
+	public void updateCat(String catcode,String catdesc)
+	{
+		cat.updateCat(catcode, catdesc);
+		System.out.println("updated successfully");
+	}
+	public void deletecat(String catcode)
+	{
+		cat.deleteCat(catcode);
+		System.out.println("deleted successfully");
+	}
+	//3rd question
+	public void displayCostlyBooks()
+	{
+		for(var book:tr.getCostlyBooks())
+			System.out.println(book.getTitle()+" : "+book.getPrice());
+	}
+	//4th question 
+	public void displaytitles(String s)
+	{
+		for(var t:tr.findAll())
+		{
+			if(t.getTitle().toLowerCase().contains(s.toLowerCase()))
+				System.out.println(t.getTitle());
+		}
+	}
+	//5th question
+	//Method using CrudRepository methods 
+	public long displayTitlesCOunt()
+	{
+		return tr.count();
+	}
+	//6th question
+	public void displayTitle(String title_id)
+	{
+		System.out.println(tr.getTitle(title_id).getTitle());
+	}
+	//7th question
+	public void addCategoreis(List<Category> list)
+	{
+		Category c = new Category();
+		c.setCode("CAT008");
+		c.setDescription("Medical");
+		cat.save(c);
+		System.out.println("category added successfully");
+	}
+	//8th question
+	public void deleteCat(String id)
+	{
+		cat.deleteById(id);
+		System.out.println("Deleted successfully");
+	}
+	
+	public static void main(String[] args) {
+		SpringApplication.run(Test.class, args);
+
+	}
+
+	@Override
+	public void run(String... args) throws Exception {
+		//pt.updatePrice(350, 351);
+		//displayCostlyBooks();
+		//System.out.println(displayTitlesCOunt());//18
+		//displaytitles("busy");
+		//displayTitle("MC3021");
+		 List<Category> list =new List<Category>() {
+			
+			@Override
+			public <T> T[] toArray(T[] arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public Object[] toArray() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public List<Category> subList(int arg0, int arg1) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public int size() {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+			@Override
+			public Category set(int arg0, Category arg1) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public boolean retainAll(Collection<?> arg0) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public boolean removeAll(Collection<?> arg0) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public Category remove(int arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public boolean remove(Object arg0) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public ListIterator<Category> listIterator(int arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public ListIterator<Category> listIterator() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public int lastIndexOf(Object arg0) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+			@Override
+			public Iterator<Category> iterator() {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public boolean isEmpty() {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public int indexOf(Object arg0) {
+				// TODO Auto-generated method stub
+				return 0;
+			}
+			
+			@Override
+			public Category get(int arg0) {
+				// TODO Auto-generated method stub
+				return null;
+			}
+			
+			@Override
+			public boolean containsAll(Collection<?> arg0) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public boolean contains(Object arg0) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public void clear() {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public boolean addAll(int arg0, Collection<? extends Category> arg1) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public boolean addAll(Collection<? extends Category> arg0) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+			
+			@Override
+			public void add(int arg0, Category arg1) {
+				// TODO Auto-generated method stub
+				
+			}
+			
+			@Override
+			public boolean add(Category arg0) {
+				// TODO Auto-generated method stub
+				return false;
+			}
+		};
+		//deleteCat("CAT008");
+		//updateCat("cat004", "sports");
+		deletecat("Cat008");
+		
+	}
+}

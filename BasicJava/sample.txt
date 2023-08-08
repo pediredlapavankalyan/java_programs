@@ -1,0 +1,6 @@
+this is java sample txt file
+i am learning file topic
+
+this is my first class
+my num 9110793168
+my mail pavan@1998
