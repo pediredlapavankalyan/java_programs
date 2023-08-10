@@ -1,0 +1,17 @@
+package check;
+
+import java.util.Arrays;
+
+public class ArraysTest {
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		String s ="savcdshcs";
+		int i=0;
+		while(s.charAt(i)==)
+		{
+			
+		}
+	}
+
+}
